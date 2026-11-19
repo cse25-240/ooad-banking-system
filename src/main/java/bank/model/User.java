@@ -90,6 +90,11 @@ public void recordFailedLoginAttempt(LocalDateTime now) {
         failedLoginAttempts = 0; // reset failed attempts after lockout
     }
 }
+
+public void resetFailedLoginAttempts(){
+    failedLoginAttempts = 0;
+    lockoutEndTime = null;
+}
  
  public String getUserId() {
     

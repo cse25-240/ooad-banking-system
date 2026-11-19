@@ -6,14 +6,14 @@ public class individualCustomer extends Customer {
      
     private final String firstName;
     private final String lastName;
-    private final String nationalId;
+    private final String omang;
 
     public individualCustomer(String customerId, String phoneNumber, String address, 
-                              String firstName, String LastName, String nationalId) {
+                              String firstName, String LastName, String omang) {
                              super(customerId, phoneNumber, address);
                              this.firstName= Employer.requireText(firstName, "First Name");
                              this.lastName= Employer.requireText(LastName, "Last Name");
-                             this.nationalId= Employer.requireText(nationalId, "National ID");
+                             this.omang= Employer.requireText(omang, "National ID");
                               }
 
 @Override
@@ -28,7 +28,7 @@ public class individualCustomer extends Customer {
 
     @Override
     public String getIdentificationNumber() {
-        return nationalId;
+        return omang;
     }
 
     public String getFirstName() {
@@ -40,7 +40,7 @@ public class individualCustomer extends Customer {
     }
 
     public String getNationalId() {
-        return nationalId;
+        return omang;
     }                          
 
 }
