@@ -1,6 +1,6 @@
 package bank.dao.jdbc;
 
-import bank.dao.DataAccessException;
+import bank.dao.AccessDataException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,20 +12,25 @@ import java.sql.Statement;
 import java.util.UUID;
 
 /** */
-public class DataManager{
+public class DatabaseManager{
 
     private final String url;
     private final String user;
     private final String password;
 
-    public DtabaseManager(String url,String user, String password) {
+    public DatabaseManager(String url, String user, String password) {
         this.url=url;
         this.user=user;
         this.password=password;
     }
 
-    public static DatabaseManagerfile(String route) {
+    public static DatabaseManager file(String route) {
         return new DatabaseManager("jdbc:h2:file"+route,"sa","" );
+    }
+
+    public static DatabaseManager withinMemory() {
+        return new DatabaseManager("jdbc:h2:mem:bank"+ UUID.randomUUID().toString().replace("-", "")
+                +";DB_CLOSE_DELAY=-1", "sa", "");
     }
 
     public Connection getConnection() throws SQLException {
@@ -36,7 +41,7 @@ public class DataManager{
         String sql;
         try (InputStream in = DatabaseManager.class.getResourceAsStream("/schema.sql")) {
             if (in==null){
-                throw AccessDataException("Schema.sql was not located in classpath.");
+                throw new AccessDataException("Schema.sql was not located in classpath.");
             }
             sql = new String(in.readAllBytes(), StandardCharsets.UTF_8);
         }catch (IOException e) {
@@ -44,7 +49,7 @@ public class DataManager{
         }
 
         StringBuilder noComms =new StringBuilder();
-        for (String line : sql.sql("\\R")){
+        for (String line : sql.split("\\R")){
             if (!line.trim().startsWith("--")){
                 noComms.append(line).append('\n');
             }

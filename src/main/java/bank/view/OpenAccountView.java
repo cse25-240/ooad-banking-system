@@ -102,7 +102,7 @@ public class OpenAccountView extends VBox {
                 case INVESTMENT -> controllers.accounts().openInvestment(id, branchName.getValue(), deposit.getText());
                 case CHEQUE -> controllers.accounts().openCheque(id, branchName.getValue(), deposit.getText(),
                         employerName.getText(), employerAddress.getText());
-                default -> controllers.accounts().openSavings(id, branch.getValue(), deposit.getText());
+                default -> controllers.accounts().openSaving(id, branchName.getValue(), deposit.getText());
             };
             Ui.success(status, "Opened " + opened + " for " + who.displayName() + ".");
             deposit.clear();

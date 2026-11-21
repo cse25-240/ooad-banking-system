@@ -7,7 +7,7 @@ public class AccessDataException extends RuntimeException {
     public AccessDataException(String message){
         super(message);
     }
-    public AccessDataException(String message, throwable cause){
+    public AccessDataException(String message, Throwable cause){
         super(message, cause);
     }
 } 

@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 
 public class PersonalDetailsView extends VBox{
  
-    private final Conntrollers controllers;
+    private final Controllers controllers;
     private final Label name = new Label();
     private final Label identity = new Label();
     private final TextField address = new TextField();
@@ -34,7 +34,7 @@ public class PersonalDetailsView extends VBox{
      address.setPrefWidth(320);
      Button save = new Button("Save contact details");
      save.setOnAction(event -> Ui.guard(status, () -> {
-         display(controllers.customers().updateContact(customerId, address.getText(), phone.getText()));
+         display(controllers.customers().updateDetails(customerId, address.getText(), phone.getText()));
         Ui.success(status, "Saved.");
         })); 
     getChildren().addAll(Ui.heading("My details"), form, save, status);
@@ -55,7 +55,7 @@ void reload(){
 private void display(CustomerSummary y){
     customerId = y.customerId();
     name.setText(y.displayName() + "(" + y.customerType() + ")");
-    identity.setText(y.identityNumber());
+    identity.setText(y.omang());
     address.setText(y.address());
     phone.setText(y.phoneNumber());
 }
