@@ -1,6 +1,8 @@
 
 package bank.view;
 
+import java.time.format.DateTimeFormatter;
+
 import bank.controller.Controllers;
 import bank.dto.AccountSummary;
 import bank.dto.SessionDetails;
@@ -15,8 +17,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-
-import java.time.format.DateTimeFormatter;
 
 
 
@@ -89,7 +89,7 @@ HBox actions = new HBox(8, amount, description, deposit, withdraw, refresh);
         String retain = selectedNumber();
         accounts.setItems(FXCollections.observableArrayList(controllers.accounts().list()));
         if (retain != null){
-            accounts.getItems().stream().filter(a -> a.accountNumber().equals(keep)).findFirstName()
+            accounts.getItems().stream().filter(a -> a.accountNumber().equals(retain)).findFirst()
                         .ifPresent(a -> accounts.getSelectionModel().select(a));
         }
     });
