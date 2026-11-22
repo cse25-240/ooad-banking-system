@@ -60,7 +60,7 @@ static void insert(Connection connection, String accountNumber, Transaction tran
         statement.setString(3, transaction.getType().name());
         statement.setBigDecimal(4, transaction.getAmount());
         statement.setBigDecimal(5, transaction.getBalanceAfterTransaction());
-        statement.setTimestamp(6, Timestamp.valueOf(transaction.getDate()));
+        statement.setTimestamp(6, Timestamp.valueOf(transaction.getTimestamp()));
         statement.setString(7, transaction.getDescription());
         statement.executeUpdate();
     }
