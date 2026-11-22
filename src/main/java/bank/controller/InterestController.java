@@ -47,6 +47,10 @@ public class InterestController {
             throw new validationException("Interest cannot be paid for a month that has not started yet.");
 
     }
+    return payFor(month);
+    }
+
+    synchronized InterestSummary payFor(YearMonth month){
     List<Account> paid = new ArrayList<>();
     int alreadyPaid = 0;
      BigDecimal total = BigDecimal.ZERO;

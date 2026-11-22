@@ -7,7 +7,6 @@ package bank.view;
 
 import bank.controller.Controllers;
 import bank.dto.CustomerSummary;
-import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -83,10 +82,10 @@ public class RegisterCustomerView extends VBox {
 
     }
 
-   private static void addRow(GridPane grid, int row, String Label, javafx.scene.Node field) {
+   private static void addRow(GridPane grid, int row, String label, javafx.scene.Node field) {
     grid.setHgap(9);
     grid.setVgap(7);
-    Label caption = new Label();
+    Label caption = new Label(label);
     caption.setMinWidth(170);
     grid.add(caption, 0, row);
     grid.add(field, 1, row);

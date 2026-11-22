@@ -20,24 +20,23 @@ import bank.dao.memory.InMemoryAccount;
 import bank.dao.memory.InMemoryCustomer;
 import bank.dao.memory.InMemoryUser;
 
-import java.time.Clock;
+
 public class AppContext {
 
-    private final AppContext() {
+    private  AppContext() {
 
  
 
     }
-private static Conntrollers feed (CustomerDAO customers, AccountDAO accounts, UserDAO users){
+private static Controllers feed (CustomerDAO customers, AccountDAO accounts, UserDAO users){
     Session session = new Session();
     IdGenerator ids = new IdGenerator();
     InterestController interest = new InterestController(accounts, session);
     return new Controllers(session,
            new LoginController(users,session),
-           new CustomerController(customers, accounts, users, session, ids),
-           new AccountController(customers, accounts, session, ids),
-           new TransactionController(accounts, session), interest,
-           new InterestScheduler(interest, Clock.systemDefaultZone()));
+           new AccountController(customers, accounts, session, ids), interest,
+            new TransactionController(accounts, session),
+            new CustomerController(customers, accounts, users, session, ids));
 }
 
 
