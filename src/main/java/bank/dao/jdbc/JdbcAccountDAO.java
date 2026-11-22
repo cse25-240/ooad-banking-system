@@ -160,7 +160,7 @@ public void update(Account account){
         }
         for (Transaction transaction : account.getTransactions()){
             if (!storedTransactions.contains(transaction.getTransactionId())){
-                jdbcTransactionDAO.insert(connection, account.getAccountNumber(), transaction);
+                JdbcTransactionDAO.insert(connection, account.getAccountNumber(), transaction);
             }
         }
     }
