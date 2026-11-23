@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS transactions (
 
 -- User: a login. Only a salted password hash is stored, never the password.
 -- A CUSTOMER login points at exactly one customer, and staff logins have no customer.
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS app_users (
     user_id         VARCHAR(20)  PRIMARY KEY,
     username        VARCHAR(40)  NOT NULL UNIQUE,
     password_hash   VARCHAR(200) NOT NULL,

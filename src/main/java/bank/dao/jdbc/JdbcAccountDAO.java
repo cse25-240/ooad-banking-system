@@ -45,13 +45,13 @@ public class JdbcAccountDAO implements AccountDAO {
     @Override
     public void save(String customerId, Account account){
         jdbc.write(db, connection -> {
-            String sql = "INSERT INTO accounts (account_number, account_type, branch_name, opening_date, " +
-                    "balance, last_interest_paid, employer_name, employer_address) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO accounts (account_number, customer_id, account_type, branch_name, opening_date, " +
+                    "balance, last_interest_paid, employer_name, employer_address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try (PreparedStatement statement = connection.prepareStatement(sql)){
 
                 statement.setString(1, account.getAccountNumber());
-                statement.setString(2, account.getAccountType().toUpperCase());
-                statement.setString(3, customerId);
+                statement.setString(2, customerId);
+                statement.setString(3, account.getAccountType().toUpperCase()); 
                 statement.setString(4, account.getBranchName());
                 statement.setDate(5, Date.valueOf(account.getDateOpened()));
                 statement.setBigDecimal(6, account.getBalance());

@@ -32,7 +32,7 @@ public class JdbcUserDAO implements UserDAO{
     @Override 
     public void save(User user) {
         jdbc.write(db, connection -> {
-            String sql = "INSERT INTO users (" + COLUMNS + ") VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO app_users (" + COLUMNS + ") VALUES (?, ?, ?, ?, ?, ?, ?)";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, user.getUserId());
                 statement.setString(2, user.getUsername());
