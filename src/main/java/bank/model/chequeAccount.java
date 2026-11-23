@@ -29,7 +29,7 @@ public chequeAccount(String accountNumber, String branchName, LocalDate openedOn
 
     @Override
     public String getAccountType() {
-        return "Cheque Account";
+        return "Cheque";
     }
 
     @Override

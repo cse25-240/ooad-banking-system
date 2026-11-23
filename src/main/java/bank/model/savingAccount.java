@@ -26,7 +26,7 @@ public class savingAccount extends Account implements InterestBearing {
 
 @Override
 public String getAccountType(){
-    return "Savings Account";
+    return "Savings";
 
 }
 

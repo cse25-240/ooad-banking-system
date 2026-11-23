@@ -42,7 +42,7 @@ public class investmentAccount extends Account implements InterestBearing, Withd
 
     @Override
     public String getAccountType() {
-        return "Investment Account";
+        return "Investment";
     }
 
     @Override
