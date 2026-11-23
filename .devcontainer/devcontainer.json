@@ -1,0 +1,10 @@
+{
+  "name": "Banking System (Java 17 + JavaFX desktop)",
+  "build": { "dockerfile": "Dockerfile" },
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {}
+  },
+  "forwardPorts": [6080],
+  "containerEnv": { "DISPLAY": ":1" },
+  "customizations": { "vscode": { "extensions": ["vscjava.vscode-java-pack"] } }
+}
