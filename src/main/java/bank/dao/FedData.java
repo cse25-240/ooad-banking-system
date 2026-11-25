@@ -91,13 +91,13 @@ public class FedData {
  }
 
 private static Customer person(String id, String first, String surname, String nationalId, String address, String phone){
-    return new individualCustomer(id, first, surname, nationalId, address, phone);
+    return new individualCustomer(id, address, phone, first, surname, nationalId);
 
 
 }
 
 private static Customer company(String id, String name, String registrationNo, String contact, String address, String phone){
-    return new companyCustomer(id, name, registrationNo, contact, address, phone);
+    return new companyCustomer(id, address, phone, name , registrationNo, contact);
 }
 
 private static void store(CustomerDAO customers, AccountDAO accounts, UserDAO users,  Customer customer, String username, Account... heldAccounts) throws BankingException{

@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS customers (
     customer_id     VARCHAR(20)  PRIMARY KEY,
     customer_type   VARCHAR(12)  NOT NULL,
     address         VARCHAR(200) NOT NULL,
-    phone           VARCHAR(30)  NOT NULL,
+    phone           VARCHAR(50)  NOT NULL,
     first_name      VARCHAR(60),
     surname         VARCHAR(60),
     national_id     VARCHAR(30)  UNIQUE,

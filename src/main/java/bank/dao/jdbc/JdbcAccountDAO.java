@@ -177,8 +177,8 @@ public void update(Account account){
                     rows.add(new Rows(
                             rs.getString("account_number"),
                             rs.getString("account_type"),
-                            rs.getString("branch"),
-                            rs.getDate("opened_on").toLocalDate(),
+                            rs.getString("branch_name"),
+                            rs.getDate("opening_date").toLocalDate(),
                             rs.getBigDecimal("balance"),
                             last == null ? null : YearMonth.parse(last),
                             rs.getString("employer_name"),
