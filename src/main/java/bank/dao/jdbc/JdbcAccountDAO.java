@@ -106,7 +106,7 @@ public List<Account> findByCustomer(String customerId){
 
 @Override
 public List<Account> findAll(){
-return jdbc.read(db, connection -> query(connection, "SELECT" + COLUMNS + "FROM accounts ORDER BY account_number", null));
+return jdbc.read(db, connection -> query(connection, "SELECT " + COLUMNS + "FROM accounts ORDER BY account_number", null));
 }
 
 
